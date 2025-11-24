@@ -23,8 +23,16 @@ Route::get('/beranda', function () {
 Route::get('/siswa/masuk', [AuthController::class, 'showSiswaLogin'])->name('siswa.login');
 Route::post('/siswa/masuk', [AuthController::class, 'siswaLoginProcess'])->name('siswa.login.submit');
 Route::get('/dashboard/siswa', function () {
-    return view('dashboard_siswa');
+    return view('siswa.dashboard');
 })->name('dashboard.siswa')->middleware('auth');
+
+// Halaman Pembayaran Siswa
+Route::get('/siswa/pembayaran', function () {
+    return view('siswa.pembayaran');
+})->name('siswa.pembayaran')->middleware('auth');
+
+//Logout Siswa
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Login Admin
 Route::get('/admin/masuk', [AuthController::class, 'showAdminLogin'])->name('admin.login');
