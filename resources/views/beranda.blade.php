@@ -10,7 +10,7 @@
 <body class="bg-gray-100 text-white flex flex-col min-h-screen overflow-hidden">
 
     <!-- Navbar -->
-<nav class="w-full bg-white text-black flex justify-between items-center px-8 py-4 shadow-md relative">
+    <nav class="w-full bg-white text-black flex justify-between items-center px-8 py-4 shadow-md relative">
     <!-- Kiri: Logo + Nama Sekolah -->
     <div class="flex items-center space-x-3">
         <img src="{{ asset('images/logo_SMK_PGRI_GUMELAR.jpeg') }}" alt="Logo SMK PGRI Gumelar" class="w-10 h-10 rounded-full">
