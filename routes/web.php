@@ -1,7 +1,34 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
+//Halaman Beranda
 Route::get('/', function () {
-    return view('welcome');
+    return view('beranda');
 });
+
+//Halaman Daftar Siswa
+Route::get('/siswa/daftar', function () {
+    return view('siswa.daftar');
+});
+
+// Proses Daftar Siswa 
+Route::post('/daftar', [AuthController::class, 'daftar'])->name('daftar.post');
+Route::get('/beranda', function () {
+    return view('beranda');
+})->name('beranda');
+
+// Login Siswa
+Route::get('/siswa/masuk', [AuthController::class, 'showSiswaLogin'])->name('siswa.login');
+Route::post('/siswa/masuk', [AuthController::class, 'siswaLoginProcess'])->name('siswa.login.submit');
+Route::get('/dashboard/siswa', function () {
+    return view('dashboard_siswa');
+})->name('dashboard.siswa')->middleware('auth');
+
+// Login Admin
+Route::get('/admin/masuk', [AuthController::class, 'showAdminLogin'])->name('admin.login');
+Route::post('/admin/masuk', [AuthController::class, 'adminLoginProcess'])->name('admin.login.submit');
+Route::get('/dashboard/admin', function () {
+    return view('dashboard_admin');
+})->name('dashboard.admin')->middleware('auth');
