@@ -50,12 +50,14 @@
 
                     <nav class="space-y-2">
                         <a href="{{ route('dashboard.siswa') }}"
-                           class="block bg-gray-200 px-4 py-2 rounded-md text-sm font-medium">
-                            Dashboard
+                           class="block px-4 py-2 rounded-md text-sm font-medium 
+                            {{ request()->routeIs('dashboard.siswa') ? 'bg-gray-300 font-semibold' : 'hover:bg-gray-200' }}">
+                                Dashboard
                         </a>
 
                         <a href="{{ route('siswa.pembayaran') }}"
-                           class="block hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-medium">
+                           class="block px-4 py-2 rounded-md text-sm font-medium
+                            {{ request()->routeIs('siswa.pembayaran') ? 'bg-gray-300 font-semibold' : 'hover:bg-gray-200' }}">
                             Pembayaran Siswa
                         </a>
                     </nav>
@@ -67,7 +69,7 @@
             <div class="flex-1">
 
                 <!-- Card Informasi Siswa -->
-                <div class="bg-white rounded-xl p-4 shadow mb-4">
+                <div class="bg-white rounded-xl p-3 shadow mb-4">
                     <h2 class="text-xl font-bold mb-4 border-b-4 border-[#0a1b3d] pb-2">
                         Informasi Siswa
                     </h2>
@@ -119,12 +121,11 @@
                                     <td class="p-3">Rp. 180.000,00</td>
                                     <td class="p-3">Belum Lunas</td>
                                     <td class="p-3">
-                                        <a href="#"
-                                           class="bg-green-600 text-white px-4 py-1 rounded-lg hover:bg-green-700">
-                                            Bayar
-                                        </a>
+                                        <a href="{{ route('siswa.pembayaran') }}"
+                                            class="bg-green-600 text-white px-4 py-1 rounded-lg hover:bg-green-700">
+                                                Bayar
+                                         </a>
                                     </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>

@@ -31,6 +31,11 @@ Route::get('/siswa/pembayaran', function () {
     return view('siswa.pembayaran');
 })->name('siswa.pembayaran')->middleware('auth');
 
+// Proses pembayaran
+Route::get('/siswa/pembayaran/proses', function () {
+    return view('siswa.pembayaran_proses');
+})->name('siswa.pembayaran.proses')->middleware('auth');
+
 //Logout Siswa
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
